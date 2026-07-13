@@ -24,6 +24,9 @@
   .sl h1,.sl h2,.sl h3 { font-family:'Poppins','Inter',sans-serif; color:var(--navy); line-height:1.15; font-weight:800; text-wrap:balance; }
   .sl .wrap { max-width:1080px; margin:0 auto; padding:0 22px; }
   .sl .ph { border:1.5px dashed #b9c7e2; border-radius:14px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; color:#7d8aa3; background:#f3f6fc; text-align:center; padding:20px; }
+  .sl img.gal-item { object-fit:cover; border-radius:14px; display:block; box-shadow:0 8px 24px rgba(15,32,56,.12); }
+  .sl img.site-logo { height:42px; width:auto; display:block; }
+  .sl .owner-card img.photo { object-fit:cover; }
   .sl .ph .lab { font-size:12.5px; font-weight:600; }
   .sl .ph .hint { font-size:11px; opacity:.85; }
   .sl .fill { background:#e8efff; color:var(--blue-d); font-weight:700; padding:0 7px; border-radius:5px; }
@@ -171,7 +174,7 @@
   <!-- 1. HEADER -->
   <header class="site-head" id="siteHead">
     <div class="row">
-      <div class="logo-ph">STARLIGHT<span> REMODELING</span></div>
+      <a href="#top" aria-label="Starlight Remodeling — home"><img class="site-logo" src="https://starlight-remodeling.com/wp-content/uploads/2024/12/01-Logo-Mockup-by-PuneDesign-768x284.png" alt="Starlight Remodeling" width="768" height="284" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="logo-ph" style="display:none">STARLIGHT<span> REMODELING</span></span></a>
       <div class="trustline"><span class="ck">✓</span><span>Licensed &amp; Insured Contractor<span class="full"> — WA License #STARLRL750P1</span></span></div>
       <a href="#quote-form" class="btn btn-blue head-cta">Get My Free Quote</a>
     </div>
@@ -239,13 +242,13 @@
       <p class="fade" style="color:var(--muted);margin:12px auto 8px;max-width:56ch">Every photo here is a real bathroom we designed and remodeled.</p>
     </div>
     <div class="wrap"><div class="hscroll fade">
-      <div class="ph gal-item"><span class="lab">Project photo 1</span></div>
-      <div class="ph gal-item"><span class="lab">Project photo 2</span></div>
-      <div class="ph gal-item"><span class="lab">Project photo 3</span></div>
-      <div class="ph gal-item"><span class="lab">Project photo 4</span></div>
-      <div class="ph gal-item"><span class="lab">Project photo 5</span></div>
-      <div class="ph gal-item"><span class="lab">Project photo 6</span></div>
-      <div class="ph gal-item"><span class="lab">+ more</span><span class="hint">[ PROJECT PHOTOS — 8–12 portrait ]</span></div>
+      <img class="gal-item" loading="lazy" alt="Starlight Remodeling project" src="https://starlight-remodeling.com/wp-content/uploads/2024/12/spacious-bright-kitchen-with-dining-area-2023-11-27-05-23-59-utc-scaled.jpg">
+      <img class="gal-item" loading="lazy" alt="Starlight Remodeling project" src="https://starlight-remodeling.com/wp-content/uploads/2024/12/spacious-living-room-with-open-kitchen-2023-11-27-05-06-34-utc.jpg">
+      <img class="gal-item" loading="lazy" alt="Starlight Remodeling project" src="https://starlight-remodeling.com/wp-content/uploads/2024/12/outdoor-seating-area-with-a-fire-pit-and-chairs-du-2024-04-22-17-21-42-utc-scaled.jpg">
+      <img class="gal-item" loading="lazy" alt="Starlight Remodeling project" src="https://starlight-remodeling.com/wp-content/uploads/2024/12/backyard-2024-09-23-04-00-15-utc-scaled.jpg">
+      <img class="gal-item" loading="lazy" alt="Starlight Remodeling project" src="https://starlight-remodeling.com/wp-content/uploads/2024/12/outdoor-pool-2024-12-04-08-00-57-utc-scaled.jpg">
+      <img class="gal-item" loading="lazy" alt="Starlight Remodeling project" src="https://starlight-remodeling.com/wp-content/uploads/2025/02/News_262-1.jpg">
+      <div class="ph gal-item"><span class="lab">+ more</span><span class="hint">[ REPLACE with real BATHROOM photos ]</span></div>
     </div></div>
   </section>
 
@@ -321,7 +324,7 @@
           <h3><span class="fill">[Owner Name]</span> — Licensed &amp; Insured Remodeling Contractor</h3>
           <p>With over <span class="fill">[20]</span> years of experience and <span class="fill">[500]</span>+ bathrooms designed and remodeled, I personally guide you from the planning stage to the final walkthrough — with fast, precise results and an exclusive focus on bathroom remodeling.</p>
         </div>
-        <div class="ph photo"><span class="lab">Owner photo</span></div>
+        <img class="photo" loading="lazy" alt="Starlight Remodeling team" src="https://starlight-remodeling.com/wp-content/uploads/2025/08/Dave_Team_resized_smaller.jpg">
       </div>
     </div>
   </section>
