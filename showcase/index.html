@@ -103,6 +103,16 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.95);backdro
 .badge-float{position:relative}
 .badge-float .count-badge{position:absolute;bottom:18px;left:18px;background:var(--primary-dark);color:#fff;font-family:var(--font-body),sans-serif;font-weight:600;padding:12px 20px;border-radius:12px;font-size:15px}
 
+/* ---------- stats band ---------- */
+.stats-band{background:var(--primary);color:#fff;padding:44px 0}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center;align-items:start}
+.stat .num{font-family:var(--font-display),sans-serif;font-weight:800;font-size:clamp(38px,5vw,54px);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.stat .lbl{margin-top:8px;font-family:var(--font-body),sans-serif;font-weight:500;font-size:15px;color:#D6E6F2}
+.platforms{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:32px}
+.platforms span.plat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:9px 18px;font-family:var(--font-body),sans-serif;font-weight:600;font-size:13.5px;color:#fff}
+.platforms .star{color:#FFD98A;letter-spacing:1px}
+@media(max-width:560px){.stats-row{gap:10px}.stat .num{font-size:clamp(28px,8vw,40px)}.stat .lbl{font-size:12.5px}.platforms{gap:8px}.platforms span.plat{padding:8px 13px;font-size:12.5px}}
+
 /* ---------- qualify / survey ---------- */
 .qualify{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .qualify .container{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
@@ -361,6 +371,22 @@ footer a:hover{color:#fff}
     <div class="hero-img badge-float">
       <img src="https://starlight-remodeling.com/wp-content/uploads/2024/12/IMG_1776.webp" alt="Modern bathroom remodeled by Starlight Remodeling">
       <div class="count-badge">Only <span data-ph-count>5</span> Bathrooms Selected</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS BAND (client's real published numbers) ============ -->
+<section class="stats-band">
+  <div class="container">
+    <div class="stats-row">
+      <div class="stat"><div class="num" data-count="300" data-suffix="+">300+</div><div class="lbl">Homes Remodeled</div></div>
+      <div class="stat"><div class="num" data-count="1000" data-suffix="+">1,000+</div><div class="lbl">Happy Customers</div></div>
+      <div class="stat"><div class="num">5/5</div><div class="lbl">Positive Reviews</div></div>
+    </div>
+    <div class="platforms">
+      <span class="plat">Google Reviews <span class="star">★</span> 5.0</span>
+      <span class="plat">Yelp <span class="star">★★★★★</span></span>
+      <span class="plat">Thumbtack</span>
     </div>
   </div>
 </section>
@@ -1081,6 +1107,35 @@ footer a:hover{color:#fff}
     const resume = () => { clearTimeout(t); t = setTimeout(() => { track.style.animationPlayState = 'running'; }, 1500); };
     car.addEventListener('touchend', resume, {passive: true});
     car.addEventListener('touchcancel', resume, {passive: true});
+  })();
+
+  // ===== Stats count-up on scroll into view =====
+  (function(){
+    const band = document.querySelector('.stats-band');
+    if (!band) return;
+    const nums = band.querySelectorAll('.num[data-count]');
+    if (!nums.length) return;
+    const fmt = (n, suf) => Math.round(n).toLocaleString('en-US') + (suf || '');
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) {
+      nums.forEach(el => el.textContent = fmt(+el.dataset.count, el.dataset.suffix));
+      return;
+    }
+    nums.forEach(el => el.textContent = fmt(0, el.dataset.suffix));
+    const ease = t => 1 - Math.pow(1 - t, 3); // ease-out cubic
+    const animate = el => {
+      const target = +el.dataset.count, suf = el.dataset.suffix, dur = 1400, start = performance.now();
+      const step = now => {
+        const p = Math.min((now - start) / dur, 1);
+        el.textContent = fmt(target * ease(p), suf);
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => { if (e.isIntersecting) { animate(e.target); obs.unobserve(e.target); } });
+    }, {threshold: .4});
+    nums.forEach(el => io.observe(el));
   })();
 </script>
 
