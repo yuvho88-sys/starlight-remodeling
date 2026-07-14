@@ -223,6 +223,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.95);backdro
 .yt-play::after{content:"";border-left:16px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px}
 @media(hover:hover){.yt-thumb:hover .yt-play{transform:translate(-50%,-50%) scale(1.08)}}
 .yt-name{padding:15px 18px;text-align:center;font-family:var(--font-display),sans-serif;font-weight:700;font-size:16px;color:var(--primary-dark)}
+.yt-date{display:block;margin-top:4px;font-family:var(--font-body),sans-serif;font-weight:500;font-size:12.5px;letter-spacing:.02em;color:var(--text)}
 @media(max-width:920px){.yt-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.yt-grid{grid-template-columns:1fr 1fr;gap:12px}.yt-name{font-size:13.5px;padding:12px 10px}.yt-play{width:46px;height:46px}}
 
@@ -1034,12 +1035,12 @@ footer a:hover{color:#fff}
   (function(){
     // ⚠️ YT_VIDEOS: add { id, name } objects here as the client provides more testimonial videos
     const YT_VIDEOS = [
-      { id: "zOt95NGf1lA", name: "Homeowner Testimonial" },
-      { id: "o3RGt5Rqw6Y", name: "Homeowner Testimonial" },
-      { id: "t75nU_VCBQM", name: "Homeowner Testimonial" },
-      { id: "KB82pDlQfw4", name: "Homeowner Testimonial" },
-      { id: "E0MKFBTVFl0", name: "Homeowner Testimonial" },
-      { id: "dBaaD9zeSQ4", name: "Homeowner Testimonial" }
+      { id: "zOt95NGf1lA", name: "Homeowner Testimonial", date: "December 11, 2024" },
+      { id: "o3RGt5Rqw6Y", name: "Homeowner Testimonial", date: "December 11, 2024" },
+      { id: "t75nU_VCBQM", name: "Homeowner Testimonial", date: "December 11, 2024" },
+      { id: "KB82pDlQfw4", name: "Homeowner Testimonial", date: "December 11, 2024" },
+      { id: "E0MKFBTVFl0", name: "Homeowner Testimonial", date: "December 11, 2024" },
+      { id: "dBaaD9zeSQ4", name: "Homeowner Testimonial", date: "December 11, 2024" }
     ];
     const grid = document.getElementById('ytGrid');
     if (!grid) return;
@@ -1052,7 +1053,7 @@ footer a:hover{color:#fff}
           '<img loading="lazy" src="https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg" alt="' + v.name + ' — Starlight Remodeling video testimonial">' +
           '<span class="yt-play"></span>' +
         '</div>' +
-        '<div class="yt-name">' + v.name + '</div>';
+        '<div class="yt-name">' + v.name + (v.date ? '<span class="yt-date">' + v.date + '</span>' : '') + '</div>';
       const thumb = card.querySelector('.yt-thumb');
       function play(){
         const ifr = document.createElement('iframe');
