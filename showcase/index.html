@@ -40,7 +40,7 @@
   --primary-dark:#0A2A44;
   --primary-darker:#071E31;
   --secondary:#54595F;
-  --text:#7A7A7A;
+  --text:#6B7178;
   --accent:#61CE70;
   --accent-dark:#45B356;
   --ink:#1C242B;
@@ -91,10 +91,13 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.95);backdro
 /* ---------- hero ---------- */
 .hero{background:linear-gradient(180deg,#F4F9FD 0%,#FFFFFF 100%);padding:72px 0 84px}
 .hero .container{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
-.hero h1{font-size:clamp(32px,4.4vw,50px);margin-bottom:18px}
-.hero h1 .hl{color:var(--primary)}
+.hero h1{font-size:clamp(38px,6vw,64px);letter-spacing:-0.025em;margin-bottom:18px}
+.hero h1 .hl{color:var(--primary);font-size:1.12em;letter-spacing:-.03em}
+.hero h1 .it{background:linear-gradient(var(--primary) 0 0) no-repeat,linear-gradient(#B7CBDD 0 0) no-repeat;background-size:100% 0%,100% 100%;background-position:0 100%,0 0;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:waterFill 1.15s .25s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes waterFill{to{background-size:100% 100%,100% 100%}}
+@media(prefers-reduced-motion:reduce){.hero h1 .it{animation:none;background-size:100% 100%,100% 100%}}
 .hero .offer-line{font-size:18px;color:var(--secondary);margin-bottom:8px}
-.hero .offer-line b{color:var(--primary);font-weight:800}
+.hero .offer-line b{color:var(--primary);font-weight:800;font-size:1.06em}
 .hero .sub{color:var(--secondary);margin-bottom:24px}
 .urgency{background:#FFF7E8;border:1px solid #F3DFB6;border-radius:10px;padding:13px 18px;font-size:14.5px;font-weight:600;color:#8A6A1F;margin:24px 0}
 .hero-cta{display:flex;flex-direction:column;gap:12px;max-width:420px}
@@ -190,13 +193,18 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.95);backdro
 .ba-carousel{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:4px}
 .ba-carousel::-webkit-scrollbar{display:none}
 .ba-slide{flex:0 0 100%;scroll-snap-align:center;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
-.ba-pair{display:grid;grid-template-columns:1fr 1fr;gap:0}
-.ba-pair figure{position:relative;margin:0}
-.ba-pair img,.ba-ph{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
-.ba-ph{background:repeating-linear-gradient(45deg,#EDF2F6,#EDF2F6 12px,#E3EAF0 12px,#E3EAF0 24px);display:flex;align-items:center;justify-content:center;color:var(--secondary);font-weight:600;font-size:14px;text-align:center;padding:20px}
-.ba-label{position:absolute;top:14px;left:14px;font-family:var(--font-body),sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border-radius:999px;color:#fff}
+.ba-compare{--pos:50%;position:relative;aspect-ratio:4/3;overflow:hidden;background:#fff}
+.ba-compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;pointer-events:none;-webkit-user-drag:none;user-select:none}
+.ba-compare .ba-before{clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+.ba-divider{position:absolute;top:0;bottom:0;left:var(--pos);width:3px;background:#fff;transform:translateX(-50%);box-shadow:0 0 0 1px rgba(10,42,68,.18);z-index:3;pointer-events:none}
+.ba-handle{position:absolute;top:50%;left:var(--pos);transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:var(--primary);border:3px solid #fff;box-shadow:0 6px 18px rgba(10,42,68,.35);z-index:4;cursor:ew-resize;touch-action:none}
+.ba-handle::before,.ba-handle::after{content:"";position:absolute;top:50%;transform:translateY(-50%);border-top:5px solid transparent;border-bottom:5px solid transparent}
+.ba-handle::before{left:10px;border-right:7px solid #fff}
+.ba-handle::after{right:10px;border-left:7px solid #fff}
+.ba-handle:focus-visible{outline:3px solid var(--primary-dark);outline-offset:3px}
+.ba-label{position:absolute;top:14px;left:14px;font-family:var(--font-body),sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border-radius:999px;color:#fff;z-index:2;pointer-events:none}
 .ba-label.before{background:var(--secondary)}
-.ba-label.after{background:var(--primary)}
+.ba-label.after{background:var(--primary);left:auto;right:14px}
 .ba-caption{padding:16px 20px;font-family:var(--font-body),sans-serif;font-weight:600;font-size:14.5px;letter-spacing:.02em;color:var(--primary-dark);border-top:1px solid var(--line)}
 .ba-nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:#fff;border:1px solid var(--line);box-shadow:0 8px 20px rgba(10,42,68,.15);color:var(--primary);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:5;font-family:inherit}
 @media(hover:hover){.ba-nav:hover{background:var(--primary);color:#fff}}
@@ -319,7 +327,7 @@ footer a:hover{color:#fff}
   .nav img{height:38px}
   .nav .btn{padding:11px 16px;font-size:13.5px;min-height:44px}
   .hero{padding:44px 0 56px}
-  .hero h1{font-size:clamp(28px,8vw,36px)}
+  .hero h1{font-size:clamp(30px,8.5vw,42px)}
   .hero-cta{max-width:100%}
   .hero-cta .btn{width:100%}
   .urgency{font-size:13.5px}
@@ -600,43 +608,37 @@ footer a:hover{color:#fff}
 
         <!-- Real before/after pairs — client's own project photos -->
         <div class="ba-slide">
-          <div class="ba-pair">
-            <figure>
-              <img src="https://yuvho88-sys.github.io/starlight-remodeling/showcase/img/before/before-01.webp" alt="Dated tub and tile before remodel" loading="lazy">
-              <span class="ba-label before">Before</span>
-            </figure>
-            <figure>
-              <img src="https://yuvho88-sys.github.io/starlight-remodeling/showcase/img/finished/sb-08.webp" alt="Full bathroom after remodel by Starlight Remodeling" loading="lazy">
-              <span class="ba-label after">After</span>
-            </figure>
+          <div class="ba-compare" data-ba-compare style="--pos:50%">
+            <img class="ba-after" src="https://yuvho88-sys.github.io/starlight-remodeling/showcase/img/finished/sb-08.webp" alt="Full bathroom after remodel by Starlight Remodeling" loading="lazy">
+            <img class="ba-before" src="https://yuvho88-sys.github.io/starlight-remodeling/showcase/img/before/before-01.webp" alt="Dated tub and tile before remodel" loading="lazy">
+            <div class="ba-divider"></div>
+            <div class="ba-handle" tabindex="0" role="slider" aria-label="Drag to compare before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div>
+            <span class="ba-label before">Before</span>
+            <span class="ba-label after">After</span>
           </div>
           <div class="ba-caption">Full Bathroom Remodel — Greater Seattle, WA</div>
         </div>
 
         <div class="ba-slide">
-          <div class="ba-pair">
-            <figure>
-              <img src="https://yuvho88-sys.github.io/starlight-remodeling/showcase/img/before/before-02.webp" alt="Old bathtub with shower curtain before remodel" loading="lazy">
-              <span class="ba-label before">Before</span>
-            </figure>
-            <figure>
-              <img src="https://yuvho88-sys.github.io/starlight-remodeling/showcase/img/finished/sb-05.webp" alt="Walk-in glass shower after remodel by Starlight Remodeling" loading="lazy">
-              <span class="ba-label after">After</span>
-            </figure>
+          <div class="ba-compare" data-ba-compare style="--pos:50%">
+            <img class="ba-after" src="https://yuvho88-sys.github.io/starlight-remodeling/showcase/img/finished/sb-05.webp" alt="Walk-in glass shower after remodel by Starlight Remodeling" loading="lazy">
+            <img class="ba-before" src="https://yuvho88-sys.github.io/starlight-remodeling/showcase/img/before/before-02.webp" alt="Old bathtub with shower curtain before remodel" loading="lazy">
+            <div class="ba-divider"></div>
+            <div class="ba-handle" tabindex="0" role="slider" aria-label="Drag to compare before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div>
+            <span class="ba-label before">Before</span>
+            <span class="ba-label after">After</span>
           </div>
           <div class="ba-caption">Tub-to-Shower Conversion — Greater Seattle, WA</div>
         </div>
 
         <div class="ba-slide">
-          <div class="ba-pair">
-            <figure>
-              <img src="https://yuvho88-sys.github.io/starlight-remodeling/showcase/img/before/before-03.webp" alt="Old toilet and cracked tile floor before remodel" loading="lazy">
-              <span class="ba-label before">Before</span>
-            </figure>
-            <figure>
-              <img src="https://yuvho88-sys.github.io/starlight-remodeling/showcase/img/finished/sb-06.webp" alt="Modern walk-in shower and green vanity after remodel" loading="lazy">
-              <span class="ba-label after">After</span>
-            </figure>
+          <div class="ba-compare" data-ba-compare style="--pos:50%">
+            <img class="ba-after" src="https://yuvho88-sys.github.io/starlight-remodeling/showcase/img/finished/sb-06.webp" alt="Modern walk-in shower and green vanity after remodel" loading="lazy">
+            <img class="ba-before" src="https://yuvho88-sys.github.io/starlight-remodeling/showcase/img/before/before-03.webp" alt="Old toilet and cracked tile floor before remodel" loading="lazy">
+            <div class="ba-divider"></div>
+            <div class="ba-handle" tabindex="0" role="slider" aria-label="Drag to compare before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div>
+            <span class="ba-label before">Before</span>
+            <span class="ba-label after">After</span>
           </div>
           <div class="ba-caption">Master Bathroom Renovation — Greater Seattle, WA</div>
         </div>
@@ -1051,6 +1053,43 @@ footer a:hover{color:#fff}
       const idx = Math.round(track.scrollLeft / w);
       dots.forEach((d, i) => d.classList.toggle('on', i === idx));
     }, {passive: true});
+  })();
+
+  // Before/After grout-line compare sliders (handle drags; image-swipe still scrolls carousel)
+  (function(){
+    document.querySelectorAll('[data-ba-compare]').forEach(function(c){
+      const handle = c.querySelector('.ba-handle');
+      if (!handle) return;
+      function set(clientX){
+        const r = c.getBoundingClientRect();
+        let p = ((clientX - r.left) / r.width) * 100;
+        p = Math.max(2, Math.min(98, p));
+        c.style.setProperty('--pos', p + '%');
+        handle.setAttribute('aria-valuenow', Math.round(p));
+      }
+      let drag = false;
+      handle.addEventListener('pointerdown', function(e){
+        drag = true;
+        try { handle.setPointerCapture(e.pointerId); } catch(_){}
+        set(e.clientX); e.preventDefault();
+      });
+      handle.addEventListener('pointermove', function(e){ if (drag) set(e.clientX); });
+      handle.addEventListener('pointerup', function(){ drag = false; });
+      handle.addEventListener('pointercancel', function(){ drag = false; });
+      // desktop convenience: click anywhere on the frame jumps (mouse only, keeps touch carousel swipe)
+      c.addEventListener('pointerdown', function(e){
+        if (e.pointerType === 'mouse' && e.target !== handle) set(e.clientX);
+      });
+      handle.addEventListener('keydown', function(e){
+        let cur = parseFloat(getComputedStyle(c).getPropertyValue('--pos')) || 50;
+        if (e.key === 'ArrowLeft') cur = Math.max(2, cur - 4);
+        else if (e.key === 'ArrowRight') cur = Math.min(98, cur + 4);
+        else return;
+        c.style.setProperty('--pos', cur + '%');
+        handle.setAttribute('aria-valuenow', Math.round(cur));
+        e.preventDefault();
+      });
+    });
   })();
 
   // ===== Video testimonials (YouTube facade → iframe on click) =====
