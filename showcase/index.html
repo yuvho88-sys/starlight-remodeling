@@ -118,7 +118,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.95);backdro
 
 /* ---------- stats band ---------- */
 .stats-band{background:var(--primary);color:#fff;padding:44px 0}
-.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center;align-items:start}
+.stats-row{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;text-align:center;align-items:start}
 .stat .num{font-family:var(--font-display),sans-serif;font-weight:800;font-size:clamp(38px,5vw,54px);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 .stat .lbl{margin-top:8px;font-family:var(--font-body),sans-serif;font-weight:500;font-size:15px;color:#D6E6F2}
 .platforms{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:32px}
@@ -389,16 +389,11 @@ footer a:hover{color:#fff}
       </div>
       <p class="offer-line">Starlight Remodeling has transformed <b>300+ Seattle-area bathrooms</b> — rated <b>5.0 stars</b> by the homeowners who live with them every day. This month, we're selecting <span data-ph-count>5</span> homes for a before-and-after showcase. If yours is chosen, you may qualify for <b><span data-ph-discount>30%</span> off</b> your remodel.</p>
       <ul class="check-list">
-        <li>Only <span data-ph-count>5</span> bathrooms will be selected</li>
-        <li>Selected homeowners may qualify for <span data-ph-discount>30%</span> OFF</li>
-        <li>Free in-home bathroom consultation</li>
-        <li>Before-and-after showcase opportunity</li>
         <li>Custom walk-in showers &amp; glass enclosures</li>
         <li>Tile, waterproofing &amp; premium finishes</li>
         <li>Vanities, lighting &amp; ventilation upgrades</li>
         <li>Professional installation and cleanup</li>
       </ul>
-      <div class="urgency">Applications are open this month only. Once <span data-ph-count>5</span> bathrooms are selected, this showcase discount may close.</div>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#apply">See If My Bathroom Qualifies →</a>
         <a class="btn btn-outline" href="sms:+12065526692?&body=Hi!%20I%27d%20like%20to%20apply%20for%20the%20bathroom%20showcase%20discount.">💬 Text Us Now</a>
@@ -414,7 +409,6 @@ footer a:hover{color:#fff}
     <div class="stats-row">
       <div class="stat"><div class="num" data-count="300" data-suffix="+">300+</div><div class="lbl">Homes Remodeled</div></div>
       <div class="stat"><div class="num" data-count="1000" data-suffix="+">1,000+</div><div class="lbl">Happy Homeowners</div></div>
-      <div class="stat"><div class="num">5/5</div><div class="lbl">Positive Reviews</div></div>
     </div>
     <div class="platforms">
       <span class="plat">Google Reviews <span class="star">★</span> 5.0</span>
@@ -561,7 +555,7 @@ footer a:hover{color:#fff}
           <li>Both sides win</li>
         </ul>
       </div>
-      <div style="margin-top:24px"><a class="btn btn-primary" href="#apply">See If My Bathroom Qualifies</a></div>
+      <div style="margin-top:24px"><a class="btn btn-primary" href="#apply">See If My Bathroom Qualifies →</a></div>
     </div>
     <div class="offer-imgs">
       <figure>
@@ -589,7 +583,7 @@ footer a:hover{color:#fff}
       <div class="pain"><span class="num">08</span><p>You close the door when guests come over instead of feeling proud of it</p></div>
       <div class="pain"><span class="num">09</span><p>You're open to before-and-after photos</p></div>
     </div>
-    <a class="btn btn-primary" href="#apply">Apply for the Showcase Discount</a>
+    <a class="btn btn-primary" href="#apply">See If My Bathroom Qualifies →</a>
   </div>
 </section>
 
@@ -700,18 +694,6 @@ footer a:hover{color:#fff}
   <div class="container" style="margin-top:34px"><a class="btn btn-primary" href="#apply">I Want a Bathroom Like This</a></div>
 </section>
 
-<!-- ============ VIDEO TESTIMONIALS (YouTube) ============ -->
-<section class="feedback" style="border-top:1px solid var(--line)">
-  <div class="container center">
-    <span class="eyebrow">Video Testimonials</span>
-    <h2 class="section-title" style="margin:0 auto 8px">Hear It From Homeowners Who <span class="it">Said Yes</span></h2>
-    <p class="lead">Real homeowners, on camera, in the bathrooms we remodeled for them.</p>
-    <!-- ⚠️ YT_VIDEOS: add more YouTube IDs + names in the YT_VIDEOS config at the bottom of this file -->
-    <div class="yt-grid" id="ytGrid"></div>
-    <div style="margin-top:34px"><a class="btn btn-primary" href="#apply">I Want to Remodel My Bathroom</a></div>
-  </div>
-</section>
-
 <!-- ============ PROCESS ============ -->
 <section class="process">
   <div class="container center">
@@ -739,41 +721,7 @@ footer a:hover{color:#fff}
         <p>If selected, you may qualify for <span data-ph-discount>30%</span> OFF your bathroom remodel in exchange for approved before-and-after project photos.</p>
       </div>
     </div>
-    <div style="margin-top:32px"><a class="btn btn-primary" href="#apply">Start My Application</a></div>
-  </div>
-</section>
-
-<!-- ============ COMPARISON ============ -->
-<section>
-  <div class="container center">
-    <span class="eyebrow">Why This Is Different</span>
-    <h2 class="section-title" style="margin:0 auto">Most Homeowners Pay Full Price. You Might Not Have To.</h2>
-    <div class="compare-grid" style="text-align:left">
-      <div class="plan std-plan">
-        <span class="tag std">Standard</span>
-        <h3>Regular Bathroom Remodel</h3>
-        <ul>
-          <li>Full project pricing</li>
-          <li>No showcase discount</li>
-          <li>Standard consultation</li>
-          <li>Standard scheduling</li>
-          <li>Standard portfolio use</li>
-        </ul>
-      </div>
-      <div class="plan featured">
-        <span class="tag hot">This Month Only · Selected Homeowners</span>
-        <h3><span data-ph-count>5</span>-Bathroom Showcase Opportunity</h3>
-        <ul>
-          <li><span data-ph-discount>30%</span> OFF for selected homeowners</li>
-          <li>A complete before-and-after transformation</li>
-          <li>Free in-home consultation</li>
-          <li>Limited to <span data-ph-count>5</span> bathrooms only</li>
-          <li>Premium remodeling process</li>
-          <li>Clear, transparent project review</li>
-        </ul>
-        <div style="margin-top:22px"><a class="btn btn-primary" href="#apply" style="width:100%;background:#fff;color:var(--primary-dark);box-shadow:none">Check If I Qualify</a></div>
-      </div>
-    </div>
+    <div style="margin-top:32px"><a class="btn btn-primary" href="#apply">See If My Bathroom Qualifies →</a></div>
   </div>
 </section>
 
@@ -781,21 +729,14 @@ footer a:hover{color:#fff}
 <section class="matters" style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="container">
     <figure>
-      <img src="https://starlight-remodeling.com/wp-content/uploads/2024/12/IMG_1776.webp" alt="Modern walk-in shower after remodel by Starlight Remodeling">
+      <img src="https://yuvho88-sys.github.io/starlight-remodeling/showcase/img/finished/sb-07.webp" alt="Custom vanity and lit mirror remodeled by Starlight">
       <figcaption class="img-cap">One of our 300+ finished Seattle-area bathrooms</figcaption>
     </figure>
     <div>
       <span class="eyebrow">Why It Matters</span>
       <h2 class="section-title">Every Morning Starts in <span class="it">That Bathroom</span>. How Does Yours Make You Feel?</h2>
       <p class="lead">An outdated bathroom changes the way your entire home feels. It's the first room you walk into every morning and the last one guests remember. You keep saying "we'll get to it eventually," but every month that passes, the bathroom stays the same and remodeling costs keep rising.</p>
-      <ul class="check-list" style="margin-top:22px">
-        <li>Old tile and grout make the whole house feel tired</li>
-        <li>Bad lighting makes the bathroom feel smaller</li>
-        <li>A tub nobody uses wastes the best space you have</li>
-        <li>Worn surfaces and small leaks only get more expensive to fix</li>
-        <li>A beautiful bathroom changes how you feel about coming home</li>
-      </ul>
-      <div style="margin-top:26px"><a class="btn btn-primary" href="#apply">See If My Bathroom Can Be Selected</a></div>
+      <div style="margin-top:26px"><a class="btn btn-primary" href="#apply">See If My Bathroom Qualifies →</a></div>
     </div>
   </div>
 </section>
@@ -830,7 +771,7 @@ footer a:hover{color:#fff}
         <p>The goal is a bathroom that looks better, works better, and makes the whole home feel new.</p>
       </div>
     </div>
-    <div style="margin-top:32px"><a class="btn btn-primary" href="#apply">Apply for the <span data-ph-discount>30%</span> Discount</a></div>
+    <div style="margin-top:32px"><a class="btn btn-primary" href="#apply">See If My Bathroom Qualifies →</a></div>
   </div>
 </section>
 
@@ -843,9 +784,6 @@ footer a:hover{color:#fff}
     <div class="cards three" style="text-align:left">
       <div class="card"><div class="stars">★★★★★</div><h3>Professional, respectful crews</h3><p>Consistent feedback about skilled teams who treat your home the way you would.</p></div>
       <div class="card"><div class="stars">★★★★★</div><h3>You always know what's happening</h3><p>Homeowners appreciate updates from consultation through completion.</p></div>
-      <div class="card"><div class="stars">★★★★★</div><h3>Clean work, every day</h3><p>A structured process focused on keeping your home tidy throughout the remodel.</p></div>
-      <div class="card"><div class="stars">★★★★★</div><h3>Quality craftsmanship</h3><p>Attention to detail across tile, waterproofing, glass, and finishes.</p></div>
-      <div class="card"><div class="stars">★★★★★</div><h3>A bathroom that feels brand new</h3><p>The finished space reflects the vision from the first walkthrough.</p></div>
       <div class="card"><div class="stars">★★★★★</div><h3>A transformation that changes the whole home</h3><p>The kind of before and after that makes everything else feel different too.</p></div>
     </div>
   </div>
@@ -903,7 +841,7 @@ footer a:hover{color:#fff}
     <span class="eyebrow">Spots Are Filling Up</span>
     <h2>Your New Bathroom Starts With a 60-Second Application</h2>
     <p>See if your bathroom qualifies for the before-and-after showcase and the <span data-ph-discount>30%</span> discount. Once all <span data-ph-count>5</span> spots are taken, this opportunity closes.</p>
-    <a class="btn btn-primary" href="#apply" style="background:#fff;color:var(--primary-dark)">Apply for the <span data-ph-discount>30%</span> Discount</a>
+    <a class="btn btn-primary" href="#apply" style="background:#fff;color:var(--primary-dark)">See If My Bathroom Qualifies →</a>
     <div class="micro" style="color:#9DB8CB">Free consultation. No obligation. Only <span data-ph-count>5</span> bathrooms selected this month.</div>
   </div>
 </section>
