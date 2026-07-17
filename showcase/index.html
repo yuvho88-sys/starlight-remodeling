@@ -352,7 +352,7 @@ footer a:hover{color:#fff}
   .ba-caption{font-size:13px;padding:13px 16px}
   .compare-grid .plan{padding:26px 20px}
   .pain-grid,.steps,.cards,.cards.three{grid-template-columns:1fr}
-  .sticky-bar{display:flex}
+  .sticky-bar.show{display:flex}
   footer{padding-bottom:130px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover{transform:none}}
@@ -617,7 +617,7 @@ footer a:hover{color:#fff}
     </div>
     <div class="offer-imgs">
       <figure>
-        <img src="https://starlight-remodeling.com/wp-content/uploads/2024/12/IMG_1776.webp" alt="Custom walk-in shower remodeled by Starlight Remodeling">
+        <img src="https://yuvho88-sys.github.io/starlight-remodeling/showcase/img/offer.jpg" alt="Double vanity and walk-in shower remodeled by Starlight Remodeling">
         <figcaption class="img-cap">Custom walk-in shower — remodeled by Starlight, Greater Seattle WA</figcaption>
       </figure>
     </div>
@@ -668,7 +668,7 @@ footer a:hover{color:#fff}
       <p class="disclaimer">Final scope depends on your bathroom, selected materials, layout, and in-home consultation.</p>
     </div>
     <figure>
-      <img src="https://starlight-remodeling.com/wp-content/uploads/2024/12/4ea0e641-5d35-43f3-b59d-f8cae18d0e28.webp" alt="Premium bathroom finishes by Starlight Remodeling">
+      <img src="https://yuvho88-sys.github.io/starlight-remodeling/showcase/img/scope.jpg" alt="Double vanity with round mirrors remodeled by Starlight Remodeling">
       <figcaption class="img-cap">Premium finishes from a completed Starlight project</figcaption>
     </figure>
   </div>
@@ -1293,6 +1293,21 @@ footer a:hover{color:#fff}
   data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
   data-widget-id="6a4ee8ff01a4d31ca57547c1"
   data-source="WEB_USER"></script>
+
+<!-- Sticky mobile CTA bar: reveal only when the last part of the page (final CTA) is reached -->
+<script>
+  (function(){
+    var bar = document.querySelector('.sticky-bar');
+    var last = document.querySelector('.lastcall');
+    if (!bar || !last) return;
+    function onScroll(){
+      bar.classList.toggle('show', last.getBoundingClientRect().top < window.innerHeight);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
 
 <!-- Video Testimonials: Swiper coverflow + vanilla lightbox (facade — no iframe until click) -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
