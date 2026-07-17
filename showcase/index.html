@@ -371,7 +371,7 @@ footer a:hover{color:#fff}
 .vt-dots .swiper-pagination-bullet-active{background:var(--primary);transform:scale(1.25)}
 .vt-prev{left:-4px}
 .vt-next{right:-4px}
-@media(max-width:640px){.vt-swiper .swiper-slide{width:70vw}}
+@media(max-width:920px){.vt-swiper .swiper-slide{width:60vw}}
 @media(prefers-reduced-motion:reduce){.vt-swiper .swiper-slide{transition:none}}
 .vt-lb{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.94)}
 .vt-lb.open{display:flex}
@@ -568,6 +568,34 @@ footer a:hover{color:#fff}
   </div>
 </section>
 
+<!-- ============ VIDEO TESTIMONIALS (YouTube coverflow + lightbox) ============ -->
+<section class="feedback vt-section" style="border-top:1px solid var(--line)">
+  <div class="container center">
+    <span class="eyebrow">Video Testimonials</span>
+    <h2 class="section-title" style="margin:0 auto 8px">Hear It From Homeowners Who <span class="it">Said Yes</span></h2>
+    <p class="lead">Real homeowners, on camera, in the bathrooms we remodeled for them.</p>
+  </div>
+  <div class="vt-wrap">
+    <div class="swiper vt-swiper">
+      <div class="swiper-wrapper" id="vtWrapper"></div>
+    </div>
+    <button class="ba-nav prev vt-prev" type="button" aria-label="Previous video">‹</button>
+    <button class="ba-nav next vt-next" type="button" aria-label="Next video">›</button>
+    <div class="vt-caption" id="vtCaption"></div>
+    <div class="ba-dots vt-dots" id="vtDots"></div>
+  </div>
+  <div class="container center" style="margin-top:34px"><a class="btn btn-primary" href="#apply">See If My Bathroom Qualifies →</a></div>
+</section>
+
+<!-- Video lightbox — iframe is created only on click, removed on close -->
+<div class="vt-lb" id="vtLightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Video testimonial player">
+  <button class="vt-lb-close" type="button" aria-label="Close video">✕</button>
+  <button class="vt-lb-nav prev" type="button" aria-label="Previous video">‹</button>
+  <div class="vt-lb-stage" id="vtLbStage"></div>
+  <button class="vt-lb-nav next" type="button" aria-label="Next video">›</button>
+  <div class="vt-lb-counter" id="vtLbCounter"></div>
+</div>
+
 <!-- ============ THE OFFER, EXPLAINED ============ -->
 <section class="offer">
   <div class="container">
@@ -723,34 +751,6 @@ footer a:hover{color:#fff}
   </div>
   <div class="container" style="margin-top:34px"><a class="btn btn-primary" href="#apply">I Want a Bathroom Like This</a></div>
 </section>
-
-<!-- ============ VIDEO TESTIMONIALS (YouTube coverflow + lightbox) ============ -->
-<section class="feedback vt-section" style="border-top:1px solid var(--line)">
-  <div class="container center">
-    <span class="eyebrow">Video Testimonials</span>
-    <h2 class="section-title" style="margin:0 auto 8px">Hear It From Homeowners Who <span class="it">Said Yes</span></h2>
-    <p class="lead">Real homeowners, on camera, in the bathrooms we remodeled for them.</p>
-  </div>
-  <div class="vt-wrap">
-    <div class="swiper vt-swiper">
-      <div class="swiper-wrapper" id="vtWrapper"></div>
-    </div>
-    <button class="ba-nav prev vt-prev" type="button" aria-label="Previous video">‹</button>
-    <button class="ba-nav next vt-next" type="button" aria-label="Next video">›</button>
-    <div class="vt-caption" id="vtCaption"></div>
-    <div class="ba-dots vt-dots" id="vtDots"></div>
-  </div>
-  <div class="container center" style="margin-top:34px"><a class="btn btn-primary" href="#apply">See If My Bathroom Qualifies →</a></div>
-</section>
-
-<!-- Video lightbox — iframe is created only on click, removed on close -->
-<div class="vt-lb" id="vtLightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Video testimonial player">
-  <button class="vt-lb-close" type="button" aria-label="Close video">✕</button>
-  <button class="vt-lb-nav prev" type="button" aria-label="Previous video">‹</button>
-  <div class="vt-lb-stage" id="vtLbStage"></div>
-  <button class="vt-lb-nav next" type="button" aria-label="Next video">›</button>
-  <div class="vt-lb-counter" id="vtLbCounter"></div>
-</div>
 
 <!-- ============ PROCESS ============ -->
 <section class="process">
@@ -1326,6 +1326,7 @@ footer a:hover{color:#fff}
 
     const capEl = document.getElementById('vtCaption');
     const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    const mob = window.matchMedia && window.matchMedia('(max-width:920px)').matches;
 
     const swiper = new Swiper('.vt-swiper', {
       effect: 'coverflow',
@@ -1334,7 +1335,7 @@ footer a:hover{color:#fff}
       slidesPerView: 'auto',
       loop: VT.length > 2,
       spaceBetween: 0,
-      coverflowEffect: { rotate: reduce ? 0 : 20, depth: reduce ? 0 : 150, modifier: 1, stretch: 0, slideShadows: false },
+      coverflowEffect: { rotate: reduce ? 0 : (mob ? 18 : 20), depth: reduce ? 0 : (mob ? 120 : 150), modifier: 1, stretch: 0, slideShadows: false },
       navigation: { prevEl: '.vt-prev', nextEl: '.vt-next' },
       pagination: { el: '.vt-dots', clickable: true },
       keyboard: { enabled: true, onlyInViewport: true },
