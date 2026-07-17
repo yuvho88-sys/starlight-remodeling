@@ -272,6 +272,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.95);backdro
 /* ---------- why it matters ---------- */
 .matters .container{display:grid;grid-template-columns:.9fr 1.1fr;gap:52px;align-items:center}
 .matters img{border-radius:var(--radius);box-shadow:var(--shadow);aspect-ratio:4/5;object-fit:cover;width:100%}
+.img-cap{font-size:13px;color:var(--text);margin-top:10px;line-height:1.5}
 
 /* ---------- approach & feedback cards ---------- */
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:38px}
@@ -320,7 +321,7 @@ footer a:hover{color:#fff}
   .pain-grid{grid-template-columns:1fr 1fr}
   .steps,.cards{grid-template-columns:1fr 1fr}
   .compare-grid{grid-template-columns:1fr}
-  .hero-img{order:-1}
+  .matters figure{order:2}
   .hero-img img{aspect-ratio:16/10}
 }
 @media(max-width:640px){
@@ -541,7 +542,10 @@ footer a:hover{color:#fff}
       <div style="margin-top:24px"><a class="btn btn-primary" href="#apply">See If My Bathroom Qualifies</a></div>
     </div>
     <div class="offer-imgs">
-      <img src="https://starlight-remodeling.com/wp-content/uploads/2024/12/IMG_1776.webp" alt="Custom walk-in shower remodeled by Starlight Remodeling">
+      <figure>
+        <img src="https://starlight-remodeling.com/wp-content/uploads/2024/12/IMG_1776.webp" alt="Custom walk-in shower remodeled by Starlight Remodeling">
+        <figcaption class="img-cap">Custom walk-in shower — remodeled by Starlight, Greater Seattle WA</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -589,7 +593,10 @@ footer a:hover{color:#fff}
       </div>
       <p class="disclaimer">Final scope depends on your bathroom, selected materials, layout, and in-home consultation.</p>
     </div>
-    <img src="https://starlight-remodeling.com/wp-content/uploads/2024/12/4ea0e641-5d35-43f3-b59d-f8cae18d0e28.webp" alt="Premium bathroom finishes by Starlight Remodeling">
+    <figure>
+      <img src="https://starlight-remodeling.com/wp-content/uploads/2024/12/4ea0e641-5d35-43f3-b59d-f8cae18d0e28.webp" alt="Premium bathroom finishes by Starlight Remodeling">
+      <figcaption class="img-cap">Premium finishes from a completed Starlight project</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -751,7 +758,10 @@ footer a:hover{color:#fff}
 <!-- ============ WHY IT MATTERS ============ -->
 <section class="matters" style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="container">
-    <img src="https://starlight-remodeling.com/wp-content/uploads/2024/12/IMG_1776.webp" alt="Modern walk-in shower after remodel by Starlight Remodeling">
+    <figure>
+      <img src="https://starlight-remodeling.com/wp-content/uploads/2024/12/IMG_1776.webp" alt="Modern walk-in shower after remodel by Starlight Remodeling">
+      <figcaption class="img-cap">One of our 300+ finished Seattle-area bathrooms</figcaption>
+    </figure>
     <div>
       <span class="eyebrow">Why It Matters</span>
       <h2 class="section-title">Every Morning Starts in <span class="it">That Bathroom</span>. How Does Yours Make You Feel?</h2>
