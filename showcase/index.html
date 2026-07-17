@@ -1338,10 +1338,19 @@ footer a:hover{color:#fff}
       navigation: { prevEl: '.vt-prev', nextEl: '.vt-next' },
       pagination: { el: '.vt-dots', clickable: true },
       keyboard: { enabled: true, onlyInViewport: true },
-      on: { init: setCap, slideChange: setCap }
+      on: {
+        init: function(s){ setCap(s); },
+        slideChange: function(s){ setCap(s); }
+      }
     });
-    function ri(){ return typeof swiper.realIndex === 'number' ? swiper.realIndex : 0; }
-    function setCap(){ capEl.textContent = VT[ri()] ? VT[ri()].cap : ''; }
+    // Use the instance PASSED to the handler, never the outer `swiper` const —
+    // the init event fires during construction, while `swiper` is still in its
+    // temporal dead zone (accessing it there throws and aborts Swiper init).
+    function setCap(s){
+      var i = (s && typeof s.realIndex === 'number') ? s.realIndex : 0;
+      capEl.textContent = VT[i] ? VT[i].cap : '';
+    }
+    setCap(swiper);
 
     // Center click -> lightbox; side click -> recenter (delegation covers loop clones)
     const swEl = document.querySelector('.vt-swiper');
