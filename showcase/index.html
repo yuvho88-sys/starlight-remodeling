@@ -1118,45 +1118,6 @@ footer a:hover{color:#fff}
     });
   })();
 
-  // ===== Video testimonials (YouTube facade → iframe on click) =====
-  (function(){
-    // ⚠️ YT_VIDEOS: add { id, name } objects here as the client provides more testimonial videos
-    const YT_VIDEOS = [
-      { id: "zOt95NGf1lA", name: "Homeowner Testimonial", date: "December 11, 2024" },
-      { id: "o3RGt5Rqw6Y", name: "Homeowner Testimonial", date: "December 11, 2024" },
-      { id: "t75nU_VCBQM", name: "Homeowner Testimonial", date: "December 11, 2024" },
-      { id: "KB82pDlQfw4", name: "Homeowner Testimonial", date: "December 11, 2024" },
-      { id: "E0MKFBTVFl0", name: "Homeowner Testimonial", date: "December 11, 2024" },
-      { id: "dBaaD9zeSQ4", name: "Homeowner Testimonial", date: "December 11, 2024" }
-    ];
-    const grid = document.getElementById('ytGrid');
-    if (!grid) return;
-    if (!YT_VIDEOS.length) { grid.closest('section').style.display = 'none'; return; }
-    YT_VIDEOS.forEach(v => {
-      const card = document.createElement('div');
-      card.className = 'yt-card';
-      card.innerHTML =
-        '<div class="yt-thumb" role="button" tabindex="0" aria-label="Play video testimonial: ' + v.name + '">' +
-          '<img loading="lazy" src="https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg" alt="' + v.name + ' — Starlight Remodeling video testimonial">' +
-          '<span class="yt-play"></span>' +
-        '</div>' +
-        '<div class="yt-name"><span class="yt-title">' + v.name + '</span>' + (v.date ? '<span class="yt-date">' + v.date + '</span>' : '') + '</div>';
-      const thumb = card.querySelector('.yt-thumb');
-      function play(){
-        const ifr = document.createElement('iframe');
-        ifr.src = 'https://www.youtube-nocookie.com/embed/' + v.id + '?autoplay=1&rel=0';
-        ifr.title = v.name + ' — Starlight Remodeling';
-        ifr.setAttribute('allow', 'autoplay; encrypted-media; picture-in-picture');
-        ifr.setAttribute('allowfullscreen', '');
-        thumb.innerHTML = '';
-        thumb.appendChild(ifr);
-      }
-      thumb.addEventListener('click', play);
-      thumb.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); } });
-      grid.appendChild(card);
-    });
-  })();
-
   // ===== Auto-carousel: pause while touched, resume 1.5s after release =====
   (function(){
     const car = document.querySelector('.auto-carousel');
